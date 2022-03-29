@@ -36,6 +36,10 @@ const ListScreen: React.FC<Props> = () => {
       );
     };
 
+  const handleTaskDeleteClick = (handleTask: Task) => () => {
+    setTasks((tasks) => tasks.filter((task) => task.id !== handleTask.id));
+  };
+
   const handleClearClick = () =>
     setTasks((tasks) => tasks.filter((task) => !task.isComplete));
 
@@ -53,6 +57,7 @@ const ListScreen: React.FC<Props> = () => {
               onChange={handleCompleteChange(task)}
             />{" "}
             {task.label}
+            <button onClick={handleTaskDeleteClick(task)}>delete</button>
           </div>
         ))}
       </div>
