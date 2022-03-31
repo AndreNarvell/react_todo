@@ -7,7 +7,7 @@ type Props = {};
 
 const ListScreen: React.FC<Props> = () => {
   const { addTask, tasks, setTasks, updateTaskCompletion } = useTaskStore();
-  const value = useContext(TaskContext);
+  // const value = useContext(TaskContext);
 
   const [newTaskLabel, setNewTaskLabel] = useState("");
 
