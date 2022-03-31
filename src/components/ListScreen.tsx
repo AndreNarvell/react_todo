@@ -1,4 +1,3 @@
-import { nanoid } from "nanoid";
 import React, { ChangeEvent, KeyboardEvent, useState } from "react";
 import { Task, TasksProps } from "../models/types";
 

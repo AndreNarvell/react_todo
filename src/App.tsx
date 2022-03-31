@@ -2,13 +2,14 @@ import "./App.css";
 import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
 import ListScreen from "./components/ListScreen";
 import FocusScreen from "./components/FocusScreen";
-import { useState } from "react";
 import { Task } from "./models/types";
 import { shuffle } from "lodash";
 import { nanoid } from "nanoid";
+import useLocalStorage from "./hooks/use-local-storage";
+import { useState } from "react";
 
 function App() {
-  const [tasks, setTasks] = useState<Task[]>([]);
+  const [tasks, setTasks] = useLocalStorage<Task[]>("tasks", []);
   const [focusedTaskId, setFocusedTaskId] = useState<string | undefined>(
     undefined
   );
