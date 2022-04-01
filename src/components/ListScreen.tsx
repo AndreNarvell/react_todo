@@ -1,6 +1,5 @@
-import React, { ChangeEvent, KeyboardEvent, useContext, useState } from "react";
+import React, { ChangeEvent, KeyboardEvent, useState } from "react";
 import styled from "styled-components";
-import TaskContext from "../contexts/task-store";
 import useTaskStore from "../hooks/use-task-store";
 import DeleteIcon from "../icons/DeleteIcon";
 import { Task } from "../models/types";
