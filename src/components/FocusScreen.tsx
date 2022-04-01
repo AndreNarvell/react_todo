@@ -36,9 +36,9 @@ const FocusScreen: React.FC<Props> = () => {
   return task ? (
     <Container>
       <Task>{task.label}</Task>
-      <Button onClick={handleMarkCompleted}>Mark completed</Button>
+      <Button onClick={handleMarkCompleted}>Mark todo completed</Button>
       <Spacer height={45} />
-      <TextButton onClick={shuffleFocusedTask}>nope</TextButton>
+      <TextButton onClick={shuffleFocusedTask}>switcheroo</TextButton>
     </Container>
   ) : (
     <div>No incomplete tasks</div>

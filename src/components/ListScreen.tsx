@@ -4,6 +4,7 @@ import TaskContext from "../contexts/task-store";
 import useTaskStore from "../hooks/use-task-store";
 import DeleteIcon from "../icons/DeleteIcon";
 import { Task } from "../models/types";
+import Checkbox from "../Style/Checkbox";
 import IconButton from "../Style/IconButton";
 import Spacer from "../Style/Spacer";
 import TextButton from "../Style/TextButton";
@@ -81,8 +82,7 @@ const ListScreen: React.FC<Props> = () => {
       <List>
         {tasks.map((task) => (
           <ListItem key={task.id}>
-            <input
-              type="checkbox"
+            <Checkbox
               checked={task.isComplete}
               onChange={handleCompleteChange(task)}
             />
