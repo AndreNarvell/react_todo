@@ -1,5 +1,5 @@
 Deployed on Netlify:
-https://ru-tu-du-todo.netlify.app/
+https://rutudutodo.netlify.app/
 
 # Getting Started with Create React App
 
