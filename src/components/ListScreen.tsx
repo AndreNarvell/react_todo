@@ -28,6 +28,7 @@ const ListItem = styled.label`
   display: flex;
   padding: 4px 0;
   font-size: 18px;
+  /* cursor: pointer; */
 `;
 
 const DeleteButton = styled(IconButton)`

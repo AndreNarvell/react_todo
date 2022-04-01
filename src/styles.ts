@@ -5,6 +5,10 @@ export const colors = {
 };
 
 export const GlobalStyle = createGlobalStyle`
+*{
+  box-sizing: border-box;
+}
+
 body{
   background: #222;
   color: #ffffff;
