@@ -1,7 +1,49 @@
 import React, { ChangeEvent, KeyboardEvent, useContext, useState } from "react";
+import styled from "styled-components";
 import TaskContext from "../contexts/task-store";
 import useTaskStore from "../hooks/use-task-store";
+import DeleteIcon from "../icons/DeleteIcon";
 import { Task } from "../models/types";
+import IconButton from "../Style/IconButton";
+import Spacer from "../Style/Spacer";
+import TextButton from "../Style/TextButton";
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 460px;
+`;
+
+const List = styled.div`
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  padding: 45px 24px;
+`;
+
+const ListItem = styled.label`
+  align-items: center;
+  display: flex;
+  padding: 4px 0;
+  font-size: 18px;
+`;
+
+const DeleteButton = styled(IconButton)`
+  visibility: hidden;
+  ${ListItem}:hover & {
+    visibility: visible;
+  }
+`;
+
+const Input = styled.input`
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border-radius: 15px;
+  border: none;
+  padding: 20px 24px;
+`;
 
 type Props = {};
 
@@ -34,30 +76,40 @@ const ListScreen: React.FC<Props> = () => {
     setTasks((tasks) => tasks.filter((task) => !task.isComplete));
 
   return (
-    <div>
-      <div>
+    <Container>
+      <List>
         {tasks.map((task) => (
-          <div key={task.id}>
-            {" "}
+          <ListItem key={task.id}>
             <input
               type="checkbox"
               checked={task.isComplete}
               onChange={handleCompleteChange(task)}
-            />{" "}
+            />
+            <Spacer width={24} />
+
             {task.label}
-            <button onClick={handleTaskDeleteClick(task)}>delete</button>
-          </div>
+            <Spacer flex={1} />
+            <DeleteButton onClick={handleTaskDeleteClick(task)}>
+              <DeleteIcon />
+            </DeleteButton>
+          </ListItem>
         ))}
-      </div>
-      <input
+      </List>
+
+      <Spacer height={30} />
+
+      <Input
+        placeholder="Add a new todo"
         value={newTaskLabel}
         onChange={handleNewTaskLabelChange}
         onKeyPress={handleNewTaskKeyPress}
       />
-      <div>
-        <button onClick={handleClearClick}>clear completed</button>
-      </div>
-    </div>
+      <Spacer height={45} />
+
+      <TextButton onClick={handleClearClick} style={{ alignSelf: "center" }}>
+        clear completed
+      </TextButton>
+    </Container>
   );
 };
 
